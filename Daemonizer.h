@@ -16,9 +16,9 @@ protected:
     virtual bool can_be_created() = 0;
 };
 
-class StopIfExist : IStrategy {
+class ExitIfExist : IStrategy {
 public:
-    StopIfExist(const std::string &pid_file) : IStrategy(pid_file) {}
+    ExitIfExist(const std::string &pid_file) : IStrategy(pid_file) {}
     virtual bool can_be_created() override {
         return true;
     }
@@ -44,9 +44,9 @@ public:
 
 template<typename Host>
 class IDaemonHooks {
-    virtual void before_start(Host& host) = 0;
-    virtual void update(Host& host) = 0;
-    virtual void cleanup(Host& host) = 0;
+    virtual void before_start(Host& host) {};
+    virtual void update(Host& host) {};
+    virtual void cleanup(Host& host) {};
 };
 
 
